@@ -7,7 +7,7 @@
     height: 90vh;
     margin: 0 auto;
     text-align: center;
-    margin-top: 5vh;
+    margin-top: 2vh;
     overflow: hidden;
     border: 2vh solid #333;
     background: linear-gradient(135deg, #4a148c, #880e4f);
@@ -147,7 +147,7 @@ button:hover {
 /* Enhanced look for game board */
 .game-board {
     display: inline-block;
-    margin-top: 20px;
+    margin: 2vh 0;
     background: linear-gradient(145deg, #edc369, #ff9d2d, rgb(251, 154, 79));
     padding: 10px;
     border: 3px solid #333;
