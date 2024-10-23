@@ -10,7 +10,6 @@
     margin-top: 5vh;
     overflow: hidden;
     border: 2vh solid #333;
-    
     background: linear-gradient(135deg, #4a148c, #880e4f);
 }
 
@@ -37,62 +36,60 @@
     position: relative;
     z-index: 1;
     margin-top: 20px;
+    
 }
 
 /* The grid where snake and food are placed */
 .snake-grid {
-    /* position: relative; */
     width: 100vw;
     height: 100%;
     display: flex;
     flex-wrap: wrap;
-    background-color: black;
+  
+
 }
 
 /* Individual cells in the snake grid */
 .cell {
     width: 20px;
     height: 20px;
-    border: 1px solid #444;
+    border: 1px solid #fa7304;
 }
 
 /* Snake's body cells */
 .snake-cell {
-    background-color: #00ff00;
+    background-color: #0cf0f4; /* Body color */
+    border-radius: 25%;
+    
 }
 
 /* Snake's head styling */
 .snake-head {
-    background-color: #32a852;
-    border-radius: 50%;
-}
-
-/* Snake's tail styling */
-.snake-tail {
-    background-color: #50c878;
+    
+    background-color: rgb(17, 77, 156); /* Food color */
+    border-radius: 30%;
+   
 }
 
 /* Food item styling */
-.food {
-    background-color: red;
+.food-cell {
+    background-color: #32a852; /* Head color */
     border-radius: 50%;
+    animation: blink 1s infinite; /* Added blink animation */
+
 }
 
 /* Scoreboard to show the current score */
-
 .score-board {
-    /* border: 2px solid red; */
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content:space-evenly;
+    justify-content: space-evenly;
     margin-top: 20px;
     color: white;
     font-size: 1.2em;
+}
 
-    /* width: 30vw; */
-    /* display: ; */
-  }
 /* Button styling */
 button {
     margin-top: 10px;
@@ -151,10 +148,11 @@ button:hover {
 .game-board {
     display: inline-block;
     margin-top: 20px;
-    background-color: black;
+    background: linear-gradient(145deg, #edc369, #ff9d2d, rgb(251, 154, 79));
     padding: 10px;
     border: 3px solid #333;
     border-radius: 10px;
+    opacity: 0.8;
 }
 
 /* Row for cells layout */
@@ -162,60 +160,17 @@ button:hover {
     display: flex;
 }
 
-/* Hover and press effects for game cards */
-.game-card {
-    cursor: pointer;
-    background-color: #333;
-    border-radius: 10px;
-    padding: 15px;
-    color: white;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
-}
-
-.game-card:hover {
-    background-color: #444;
-    transform: scale(1.05);
-}
-
-.game-card:active {
-    transform: scale(0.95);
-}
-
-/* Food-cell design */
-.food-cell {
-    background-color: red;
-}
-
 /* Animations */
 @keyframes blink {
     0% {
-        background-color: red;
+        background-color: rgb(241, 238, 244);
     }
     50% {
-        background-color: orange;
+        background-color: rgb(36, 188, 235);
     }
     100% {
-        background-color: red;
+        background-color: rgb(35, 11, 255);
     }
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-/* Background for snake cells with animation */
-.snake-head {
-    animation: blink 1s infinite;
-}
-
-.snake-tail {
-    background-color: lightgreen;
-    animation: fadeIn 2s ease-out;
 }
 
 /* Advanced styling for responsiveness */
