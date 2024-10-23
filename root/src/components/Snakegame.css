@@ -4,7 +4,7 @@
 .snake-game-container {
     position: relative;
     width: 90vw;
-    height: 87vh;
+    height: 90vh;
     margin: 0 auto;
     text-align: center;
     margin-top: 5vh;
@@ -85,7 +85,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    margin-top: 20px;
+    margin-top: 2vh;
     color: white;
     font-size: 1.2em;
 }
