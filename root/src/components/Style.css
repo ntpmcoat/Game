@@ -1,0 +1,170 @@
+canvas {
+    display: block;
+    margin: auto;
+  }
+  .home-page {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: #111;
+  }
+  
+  .background-video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .content-overlay {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+  }
+  
+  .main-title {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    margin-bottom: 2rem;
+  }
+  
+  .game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .game-card {
+    background: linear-gradient(135deg, #4a148c, #880e4f);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .game-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .game-image-container {
+    position: relative;
+    height: 150px;
+  }
+  
+  .game-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .game-icon-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .game-icon {
+    font-size: 3rem;
+    color: white;
+  }
+  
+  .game-info {
+    padding: 1rem;
+  }
+  
+  .game-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+  
+  .game-description {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+  }
+  
+  .play-button {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    text-align: center;
+    background-color: white;
+    color: #4a148c;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .play-button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .cta-section {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .cta-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+  .GamePage{
+    background-color: rgba(255, 255, 255, 0.8) ;
+  }
+  
+  .cta-description {
+    font-size: 1.125rem;
+    color: rgba(103, 51, 51, 0.8);
+    margin-bottom: 1rem;
+  }
+  
+  .leaderboard-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #6a1b9a;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.25rem;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .leaderboard-button:hover {
+    background-color: #8e24aa;
+    transform: scale(1.05);
+  }
+  
+  @media (max-width: 768px) {
+    .main-title {
+      font-size: 2rem;
+    }
+  
+    .game-grid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+  
+    .cta-title {
+      font-size: 1.5rem;
+    }
+  
+    .cta-description {
+      font-size: 1rem;
+    }
+  }
