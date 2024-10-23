@@ -4,6 +4,7 @@
 .snake-game-container {
     position: relative;
     width: 90vw;
+    min-height: 80vh;
     height: 92vh;
     margin: 0 auto;
     text-align: center;

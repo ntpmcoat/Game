@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "./Snakegame.css";
+// import {getGridSize} from  "./function.js"
+const getGridSize = (cellSize) => {
+  const boardWidth = Math.min(window.innerWidth * 0.5, cellSize * 20); // Limit to 20 cells max
+  const boardHeight = Math.min(window.innerHeight * 0.4, cellSize * 20);
+  const cols = Math.floor(boardWidth / cellSize);
+  const rows = Math.floor(boardHeight / cellSize);
+  return { cols: Math.min(cols, 20), rows: Math.min(rows, 20) };
+};
 
-const CELL_SIZE = 20;
-const INITIAL_SNAKE = [{ x: Math.floor(Math.random() * 20), y: Math.floor(Math.random() * 20) }];
+const { cols, rows } = getGridSize(15); // Use the new mobile cell size
+const INITIAL_SNAKE = [{ x: Math.floor(Math.random() * cols), y: Math.floor(Math.random() * rows) }];
 const INITIAL_DIRECTION = { x: 1, y: 0 };
 const SPEED = 300;
 
@@ -18,7 +26,7 @@ const SnakeGame = () => {
     function generateFood(snake) {
         let newFood;
         do {
-            newFood = { x: Math.floor(Math.random() * 20), y: Math.floor(Math.random() * 20) };
+            newFood = { x: Math.floor(Math.random() * cols), y: Math.floor(Math.random() * rows) };
         } while (snake.some(segment => segment.x === newFood.x && segment.y === newFood.y));
         return newFood;
     }
@@ -65,7 +73,7 @@ const SnakeGame = () => {
 
             // Check for collisions
             if (
-                head.x < 0 || head.y < 0 || head.x >= 20 || head.y >= 20 ||
+                head.x < 0 || head.y < 0 || head.x >= cols || head.y >= rows ||
                 newSnake.slice(1).some(s => s.x === head.x && s.y === head.y)
             ) {
                 setIsGameOver(true);
@@ -110,23 +118,24 @@ const SnakeGame = () => {
                     <button onClick={resetGame}>New Game</button>
                 </div>
             ) : (
-                <div className="game-board">
-                    {Array.from(Array(20)).map((_, rowIndex) =>
-                        <div key={rowIndex} className="row">
-                            {Array.from(Array(20)).map((_, colIndex) => {
-                                const isHead = rowIndex === snake[0].y && colIndex === snake[0].x;
-                                const isSnake = snake.some(s => s.x === colIndex && s.y === rowIndex) && !isHead;
-                                const isFood = food.x === colIndex && food.y === rowIndex;
-                                return (
-                                    <div
-                                        key={colIndex}
-                                        className={`cell ${isHead ? 'snake-head' : ''} ${isSnake ? 'snake-cell' : ''} ${isFood ? 'food-cell' : ''}`}
-                                    />
-                                );
-                            })}
-                        </div>
-                    )}
-                </div>
+              <div className="game-board">
+              {Array.from(Array(rows)).map((_, rowIndex) =>
+                  <div key={rowIndex} className="row">
+                      {Array.from(Array(cols)).map((_, colIndex) => {
+                          const isHead = rowIndex === snake[0].y && colIndex === snake[0].x;
+                          const isSnake = snake.some(s => s.x === colIndex && s.y === rowIndex) && !isHead;
+                          const isFood = food.x === colIndex && food.y === rowIndex;
+                          return (
+                              <div
+                                  key={colIndex}
+                                  className={`cell ${isHead ? 'snake-head' : ''} ${isSnake ? 'snake-cell' : ''} ${isFood ? 'food-cell' : ''}`}
+                              />
+                          );
+                      })}
+                  </div>
+              )}
+          </div>
+          
             )}
         </div>
     );
